@@ -1,0 +1,179 @@
+/* базовые настройки страницы */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  /* база для rem */
+}
+
+body {
+  margin: 0;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  /* наследует от html */
+}
+
+/* основная сцена игры */
+#app {
+  width: 1024px;
+  height: 768px;
+  position: relative;
+}
+
+/* общий стиль экранов (старт игра конец) */
+.screen {
+  position: absolute;
+  inset: 0;
+  background: #87ceeb;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* активный экран */
+.screen.active {
+  align-content: center;
+  opacity: 1;
+  pointer-events: all;
+  animation: fadeIn 0.3s ease;
+}
+
+/* canvas игрового поля */
+canvas {
+  background: #87ceeb;
+  display: block;
+}
+
+/* верхний ui блок */
+#ui {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* все текстовые элементы ui */
+#timer,
+#score,
+#playerName,
+button,
+.hint,
+input,
+table,
+td,
+th,
+.nameInput {
+  font-size: 1rem;
+  /* наследует от html */
+}
+
+/* кнопки управления */
+button {
+  background-color: #daf0ca;
+  color: #3c6b48;
+  border: 1px solid #e9fcdb;
+  border-radius: 5px;
+  padding: 6px 10px;
+  transition: transform 0.2s, background 0.2s;
+  cursor: pointer;
+}
+
+/* анимация кнопок при наведении */
+button:hover {
+  transform: scale(1.1);
+}
+
+/* эффект нажатия */
+button:active {
+  transform: scale(0.95);
+}
+
+/* заголовок игры */
+h1 {
+  font-size: 2rem;
+  color: #eafcdc;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* подсказка на стартовом экране */
+.hint {
+  color: #eafcdc;
+  animation: blink 1s infinite;
+  margin: 20px 0;
+}
+
+/* мигание текста */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* поле ввода имени */
+.nameInput {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #e9fcdb;
+  background-color: #daf0ca;
+  color: #3c6b48;
+  padding: 8px;
+  outline: none;
+}
+
+/* placeholder инпута */
+.nameInput::placeholder {
+  color: #3c6b48;
+}
+
+/* таблица результатов */
+table {
+  margin: 20px auto;
+  color: #eafcdc;
+  border-collapse: collapse;
+}
+
+/* ячейки таблицы */
+td,
+th {
+  padding: 6px 12px;
+  border-bottom: 1px solid #eafcdc;
+}
+
+/* плавное появление */
+@keyframes fadeIn {
+  from {
+    transform: scale(1.02);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
