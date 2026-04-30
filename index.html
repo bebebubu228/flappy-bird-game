@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1024, initial-scale=1.0">
+  <title>Flappy Game</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- стартовый экран -->
+    <div id="startScreen" class="screen active">
+      <h1>FLAPPY BIRD</h1>
+      <p class="hint">пробел — пауза, escape — прыжок</p>
+      <input id="nameInput" class="nameInput" placeholder="введите имя">
+      <button id="startBtn" disabled>начать игру</button>
+    </div>
+    <!-- игровой экран -->
+    <div id="gameScreen" class="screen">
+      <!-- ui панель -->
+      <div id="ui">
+        <div id="timer">02:00</div>
+        <button id="pauseBtn">пауза</button>
+        <button id="fontPlus">A+</button>
+        <button id="fontMinus">A-</button>
+        <div id="score">0</div>
+        <div id="playerName"></div>
+        <button id="muteBtn">Звук</button>
+      </div>
+      <!-- игровое поле -->
+      <canvas id="game" width="1024" height="768"></canvas>
+    </div>
+    <!-- экран конца игры -->
+    <div id="gameOverScreen" class="screen">
+      <h1>game over</h1>
+      <!-- таблица результатов -->
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>score</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <!-- рестарт -->
+      <button id="restartBtn">начать снова</button>
+    </div>
+  </div>
+  <!-- главный скрипт -->
+  <script type="module" src="scripts/main.js"></script>
+</body>
+
+</html>
